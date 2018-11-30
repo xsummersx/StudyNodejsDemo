@@ -1,0 +1,24 @@
+{
+  "name": "studynodejsdemo",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xsummersx/StudyNodejsDemo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xsummersx/StudyNodejsDemo/issues"
+  },
+  "homepage": "https://github.com/xsummersx/StudyNodejsDemo#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4"
+  }
+}

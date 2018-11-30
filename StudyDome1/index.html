@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JQuery首页爬虫</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+    <script src="http://www.jq22.com/jquery/angular-1.4.6.js"></script>
+    <style>
+    *{
+        list-style: none;
+        margin: 0;
+        padding:0;
+    }
+    li{
+        width: 20%;
+        text-align: center;
+        float: left;
+        font-size:12px;
+    }
+    li img{
+        width: 90%;
+        padding: 5%;
+    }
+    </style>
+  </head>
+  <body ng-app="app">
+    <div ng-controller="ctr">
+      <ul>
+        <li ng-repeat="(index,pc) in pcong">
+          <img src="{{pc.imgsrc}}" alt="" />
+          <div class="title" ng-bind='pc.info.title' ></div>
+          <div class="cont" ng-bind='pc.info.cont'></div>
+          <div class="info">
+            <span class="s1" ng-bind='pc.info.see'></span>
+            <span class="s2" ng-bind='pc.info.tall'></span>
+            <span class="s3" ng-bind='pc.info.good'></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    var app = angular.module('app',[]);
+    app.controller('ctr',['$scope','$http',function($scope,$http){
+        $http({
+            method:'GET',
+            url:'./pc/pcong.json'
+        }).then(function successCallback(response){
+            $scope.pcong = response.data;
+            console.log($scope.pcong)
+        },function errorCallback(response){
+            console.log("error")
+        })
+    }])
+  </script>
+</html>
